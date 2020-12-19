@@ -28,7 +28,7 @@ import java.util.List;
  */
 @Api(description = "讲师管理")
 @RestController
-@RequestMapping("/eduservice/edu-teacher")
+@RequestMapping("/eduservice/teacher")
 @CrossOrigin
 public class EduTeacherController {
 
@@ -36,11 +36,12 @@ public class EduTeacherController {
     private EduTeacherService teacherService;
 
     @ApiOperation(value = "所有讲师列表")
-    @GetMapping
+    @GetMapping("findAll")
     /*public List<EduTeacher> list(){
         return teacherService.list(null);
     }*/
-    public R list(){
+    //1 查询讲师所有数据
+    public R findAllTeacher(){
         List<EduTeacher> list = teacherService.list(null);
         return R.ok().data("items",list);
     }
